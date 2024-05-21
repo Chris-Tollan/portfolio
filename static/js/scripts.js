@@ -7,6 +7,7 @@
 // Scripts
 // 
 
+
 window.addEventListener('DOMContentLoaded', event => {
 
     // Navbar shrink function
@@ -57,3 +58,23 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+// Email JS //
+function sendMail(contactForm) {
+    emailjs
+      .send("service_zg7hxt9","template_8zjydva", {
+        from_name: contactForm.fullName.value,
+        email_id: contactForm.email_id.value,
+        phone: contactForm.phone.value,
+        message: contactForm.message.value
+      })
+      .then(
+        function(response) {
+            console.log("SUCCESS", response);
+        },
+        function(error) {
+            console.log("FAILED", error);
+        }
+    );
+    return false;  // To block from loading a new page
+}
