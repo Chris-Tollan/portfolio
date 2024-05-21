@@ -70,11 +70,12 @@ function sendMail(contactForm) {
       })
       .then(
         function(response) {
-            console.log("SUCCESS", response);
+            alert("Thanks for your message, I will reply as soon as possible!", response);
         },
         function(error) {
             console.log("FAILED", error);
-        }
+        },
+        contactForm.reset() 
     );
     return false;  // To block from loading a new page
 }
